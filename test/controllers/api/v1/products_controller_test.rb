@@ -8,6 +8,7 @@ class Api::V1::ProductsControllerTest < ActionDispatch::IntegrationTest
   test "should show products" do
     get api_v1_products_url(), as: :json
     assert_response :success
+    assert_equal @product.title, json_response['data' ]['attributes']['title']
   end
 
   test "should show product" do
